@@ -19,6 +19,8 @@
                 {{ ingr }}
               </li></div></span>
             </div>
+            <span class="btns d-flex"><div class="saves"><img class="save" src="../assets/buttons/save.png" alt="Сохранить" width="173px" height="29px"><img class="save_hover" src="../assets/buttons/save_hover.png" alt="Сохранить" width="173px" height="29px"></div>
+              <div class="cooks"><img class="cook" src="../assets/buttons/cook.png" alt="Готовить" width="173px" height="29px"><img class="cook_hover" src="../assets/buttons/cook_hover.png" alt="Готовить" width="173px" height="29px"></div></span>
           </div>
     </li>
   </div>
@@ -31,6 +33,46 @@
   border-image: url(../assets/recipes/wborder.png) 70;
   border-image-outset: 20px;
 } */
+
+.btns{
+  margin-bottom: 55px;
+  margin-left: 15.4%;
+  gap: 98px;
+}
+
+.saves .save_hover {
+ display: none;
+}
+
+.saves:hover .save {
+ display: none
+}
+
+.saves:hover .save_hover {
+ display: inline;
+ border-radius: 4px;
+ box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btns{
+  margin-bottom: 55px;
+  margin-left: 15.4%;
+  gap: 98px;
+}
+
+.cooks .cook_hover {
+ display: none;
+}
+
+.cooks:hover .cook {
+ display: none
+}
+
+.cooks:hover .cook_hover {
+ display: inline;
+ border-radius: 4px;
+ box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
 
 .hello{
   background-color: #FFD863;
