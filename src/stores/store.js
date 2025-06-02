@@ -2,67 +2,53 @@ import { defineStore } from 'pinia'
 export const PonyStore = defineStore('counter', {
     state: () => ({
         count: 0,
-        name: 'Пони и их знаки отличия',
+        name: 'Рецепты',
         fetchdata: null,
         aradata: [
             {
-                name: 'Искорка',
-                mark: '/src/assets/tsm.png',
-                pony: '/src/assets/ts.png',
-                link: '/twighlight-about',
-                engname: null, 
-                kind: null, 
-                image: null, 
-                residence: null,
-                occupation: null,
-                wiki: null
+                name: 'Эггног',
+                alias: '(Шотландская версия гоголя-моголя)',
+                img: '/src/assets/recipes/eggnog.png',
+                time: 'Приготовление займёт 15 минут',
+                ingredients: [
+                    'На 8 порций тебе понадобится:',
+                    'Яичный желток -  4 штуки',
+                    'Сахар - 100 г',
+                    'Молоко - 400 мл',
+                    'Корица - щепотка',
+                    'Сливки 35%-ные - 200 мл',
+                    'Гвоздика - 2 штуки',
+                    'Мускатный орех - 1 чайная ложка',
+                    'Ванильный экстракт - 1 чайная ложка',
+                    'Яичный белок - 4 штуки'
+                ],
+                cooking: [
+                    'В большой емкости взбей желтки венчиком или миксером, пока они не станут светлее. Медленно добавь сахар. Хорошо все взбей.',
+                    'Смешай молоко, гвоздику и корицу в кастрюле с толстым дном. Медленно вари на среднем огне, пока смесь не станет горячей, но не кипящей.',
+                    'Смешай молоко с яйцами. Вари всю смесь на среднем огне, не допуская кипения. Сними с огня, добавь сливки.',
+                    'Процеди через сито, чтобы убрать гвоздику. Остуди.',
+                    'Добавь ванильный экстракт, мускатный орех.'
+                ],
+                episode: '/src/assets/recipes/eggnog_ep.png',
             },
             {
-                name: 'Рарити',
-                mark: '/src/assets/rm.png',
-                pony: '/src/assets/r.jpg',
-                link: '/rarity-about'
-            },
-            {
-                name: 'Радуга',
-                mark: '/src/assets/rdm.png',
-                pony: '/src/assets/rd.png',
-                link: '/raibowdash-about'
-            },
-            {
-                name: 'Флаттершай',
-                mark: '/src/assets/fm.png',
-                pony: '/src/assets/f.png',
-                link: '/fluttershy-about'
-            },
-            {
-                name: 'Эпплджек',
-                mark: '/src/assets/apples.png',
-                pony: '/src/assets/a.png',
-                link: '/applejack-about'
-            },
-            {
-                name: 'Пинки Пай',
-                mark: '/src/assets/ppm.png',
-                pony: '/src/assets/pp.png',
-                link: '/pinkiepie-about'
+                name: 'Сапфировые кексики',
+                img: '/src/assets/recipes/sapcakes.png',
+                time: 'Приготовление займёт 2 часа',
+                ingredients: '',
+                cooking: '',
+                episode: null,
             },
         ],
     }),
     actions: {
             async getApidata() {
                 const response = await fetch(
-                    `https://ponyapi.net/v1/character/all`
+                    `https://ponyapi.net/v1/episode/all`
                 );
                 const result = await response.json();
-                this.fetchdata=result
-                this.aradata[0].engname=result.data[0].name
-                this.aradata[0].kind=result.data[0].kind
-                this.aradata[0].residence=result.data[0].residence
-                this.aradata[0].occupation=result.data[0].occupation
-                this.aradata[0].wiki=result.data[0].url
-                this.aradata[0].image=result.data[0].image
-
+                this.fetchdata=result;
+                this.aradata[1].episode=result.data[35].image;
 
                 console.log( this.fetchdata)
             },

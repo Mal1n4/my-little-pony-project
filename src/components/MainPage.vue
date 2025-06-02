@@ -1,36 +1,59 @@
 <template>
   <div class="main-content">
-    <h3 class="d-flex justify-content-center mb-5">{{ store.name }}</h3>
-    <ul class="w-75 d-flex justify-content-end">
-      <li style="list-style-type: none; " class="list-group list-group-horizontal col-8">
-          <div class="list-group-item flex-fill col-4">
-            Имя
+    <div class="hello">
+      <h2 class="mb-4">Привет, дорогой друг!</h2>
+      <h3>Наконец-то наступило лето! Понимаю, хочется освежиться. Пусть подборка необычных рецептов утолит твою жажду!</h3>
+    </div>
+    <li v-for="item in store.aradata" style="list-style-type: none; " class="col-4 d-flex mb-5 card">
+          <div class="flex-fill justify-content-center">
+            <div class="text-center">
+              <h3>{{ item.name }} </h3>
+              <h3>{{ item.alias }} </h3>
+            </div>
+            <div class="d-flex justify-content-center">
+              <img :src="item['img']" alt="Изображение готового рецепта" width="352px" height="340px">
+            </div>
+            <div>
+              <p class="time">{{ item.time }}</p>
+              <li v-for="ingr in item.ingredients">
+                {{ ingr }}
+              </li>
+            </div>
           </div>
-          <div class="list-group-item flex-fill col-4">
-            Знак отличия
-          </div>
-      </li>
-    </ul>
-    <ul class="w-75" id="list">
-      <li v-for="item in store.aradata" style="list-style-type: none; " class="list-group list-group-horizontal col-8 d-flex justify-content-center">
-          <div class="list-group-item flex-fill col-4">
-            <RouterLink :to="item['link']"><img :src="item['pony']" alt="Пони" width="50px" height="50px"></RouterLink>
-            {{ item.name }} 
-          </div>
-          <div class="list-group-item flex-fill col-4">
-            <img :src="item['mark']" alt="Знак отличия пони" width="50px" height="50px">
-          </div>
-      </li>
-    </ul>
-    <h3  class="d-flex justify-content-center mt-5">Нет твоего персонажа? Напиши нам!</h3>
-    <RouterLink to="/contact"><button class="btn btn-light contact mt-2 ">Написать</button></RouterLink>
+    </li>
   </div>
 </template>
 
 <style scoped>
+.hello{
+  background-color: #FFD863;
+  height: auto;
+  margin-bottom: 110px;
+  max-width: 656px;
+  border: 20px solid;
+  border-image: url(../assets/recipes/border.png) 30;
+  border-image-outset: 10px;
+  text-align: center;
+}
+
+.card{
+  background-color: #FFF5A6;
+  min-width: 656px;
+  border: 20px solid;
+  border-image: url(../assets/recipes/card_border.png) 30;
+  border-image-outset: 10px;
+  border-radius: 30px;
+}
+
 .main-content{
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 110px;
+  margin-bottom: 110px;
+  display: grid;
+  place-items: center;
+}
+
+.time{
+  margin-bottom: 40px;
 }
 
 #list {
