@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import FoodView from '../views/FoodView.vue'
 import DrinksView from '../views/DrinksView.vue'
 import FavosView from '../views/FavosView.vue'
+import EggnogView from '../views/EggnogView.vue'
+// import SapcakeView from '../views/SapcakeView.vue'
+// import PunchView from '../views/PunchView.vue'
 
 const routes = [
     {
@@ -25,6 +28,21 @@ const routes = [
       name: 'favorites',
       component: FavosView,
     },
+    {
+      path: '/eggnog',
+      name: 'eggnog',
+      component: EggnogView,
+    },
+    // {
+    //   path: '/sapphier-cakes',
+    //   name: 'sapphier-cakes',
+    //   component: EggnogView,
+    // },
+    // {
+    //   path: '/punch',
+    //   name: 'punch',
+    //   component: EggnogView,
+    // },
 ];
 
 const router = createRouter({

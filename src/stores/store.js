@@ -8,6 +8,7 @@ export const PonyStore = defineStore('counter', {
             {
                 name: 'Эггног',
                 alias: '(Шотландская версия гоголя-моголя)',
+                link: '/eggnog',
                 img: '/src/assets/recipes/eggnog.png',
                 time: 'Приготовление займёт 15 минут',
                 ingredients: [
@@ -29,10 +30,18 @@ export const PonyStore = defineStore('counter', {
                     'Процеди через сито, чтобы убрать гвоздику. Остуди.',
                     'Добавь ванильный экстракт, мускатный орех.'
                 ],
-                episode: '/src/assets/recipes/eggnog_ep.png',
+                episode_name: 'День очага',
+                episode: 'Сезон 6, серия 8',
+                episode_img: '/src/assets/recipes/eggnog_ep.png',
+                episode_comment: [
+                    'А вот и серия, в которой пони пьют гоголь-моголь! Попробуй и ты!',
+                    'Старлайт Глиммер не хочет праздновать День Горящего Очага, и Искорка пытается доказать ей, почему этот праздник так важен, прочитав свою любимую историю — сказку о Сноуфолл Фрост.'
+                ],
+                fact: 'Интересный факт Сюжет эпизода основан на повсети Чарльза Дикенса "Рождественская песнь в прозе"'
             },
             {
                 name: 'Сапфировые кексики',
+                link: '/sapphire-cakes',
                 img: '/src/assets/recipes/sapcakes.png',
                 time: 'Приготовление займёт 2 часа',
                 ingredients: [
@@ -51,6 +60,7 @@ export const PonyStore = defineStore('counter', {
             },
             {
                 name: 'Апельсиново-клюквенный пунш',
+                link: '/punch',
                 img: '/src/assets/recipes/punch.png',
                 time: 'Приготовление займёт 10 минут',
                 ingredients: [
