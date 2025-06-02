@@ -4,14 +4,17 @@
       <h2 class="m-4">Привет, дорогой друг!</h2>
       <h3 class="m-4">Наконец-то наступило лето! Понимаю, хочется освежиться. Пусть подборка необычных рецептов утолит твою жажду!</h3>
     </div>
+    <img class="rainbow" src="../assets/ponies/rainb_eggnog.png" alt="Радуга в костюме" width="362px" height="221px">
+    <img class="spike" src="../assets/ponies/spike_sapcake.png" alt="Спайк с сапфировым кексиком" width="119px" height="138px">
+    <img class="pinki" src="../assets/ponies/pinki_punch.png" alt="Пинки пьёт сок" width="362px" height="227px">
     <li v-for="item in store.aradata" style="list-style-type: none; " class="col-4 d-flex card">
           <div class="flex-fill justify-content-center">
             <div class="name text-center p-4">
               <h3>{{ item.name }} </h3>
               <h3>{{ item.alias }} </h3>
             </div>
-            <div class="d-flex justify-content-center photo">
-              <img :src="item['img']" alt="Изображение готового рецепта" width="352px" height="340px">
+            <div class="d-flex justify-content-center">
+              <img class="photo" :src="item['img']" alt="Изображение готового рецепта" width="352px" height="340px">
             </div>
             <div>
               <span class="time d-flex"><img src="../assets/pictos/clocks.png" alt="Часы" width="42px" height="37px"><p class="w-auto">{{ item.time }}</p></span>
@@ -29,12 +32,31 @@
 <style scoped>
 
 
-/* .photo{
-  background-color: #FFF5A6;
-  border-bottom: 20px solid;
-  border-image: url(../assets/recipes/wborder.png) 70;
-  border-image-outset: 20px;
-} */
+.photo{
+  border: 20px solid;
+  border-image: url(../assets/recipes/img_sticker.png) 100;
+}
+
+.rainbow{
+  position: absolute;
+  right: 7%;
+  top: 560px;
+  z-index: 1;
+}
+
+.spike{
+  position: absolute;
+  left: 18%;
+  top: 2495px;
+  z-index: 1;
+}
+
+.pinki{
+  position: absolute;
+  right: 7%;
+  top: 3550px;
+  z-index: 1;
+}
 
 .btns{
   margin-bottom: 55px;
