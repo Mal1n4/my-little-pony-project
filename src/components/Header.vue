@@ -16,22 +16,22 @@
                         </li>
                         <li class="nav-item col-8 d-flex justify-content-around align-items-center">
                           <RouterLink to="/food"> <div class="d-flex justify-content-start align-items-center gap-2">
-                              <h6>Еда</h6>
+                              <h5>Еда</h5>
                               <img :src="foodSrc" alt="food" width="63px" height="55px">
                             </div> </RouterLink>
 
                             <RouterLink to="/drinks"><div class="d-flex justify-content-center align-items-center gap-2">
-                              <h6>Напитки</h6>
+                              <h5>Напитки</h5>
                               <img :src="drinkSrc" alt="drinks" width="59px" height="55px">
                             </div> </RouterLink>
 
                             <RouterLink to="/favorites"><div class="d-flex justify-content-end align-items-center gap-2">
-                              <h6>Избранное</h6>
+                              <h5>Избранное</h5>
                               <img :src="favSrc" alt="favs" width="55px" height="55px">
                             </div> </RouterLink>
                         </li>
                         <li class="nav-item col-2 d-flex justify-content-end align-items-center gap-2">
-                            <h6>Профиль</h6>
+                            <h5>Профиль</h5>
                             <img :src="profileSrc" alt="profile" width="88px" height="55px">
                         </li>
                     </ul>
@@ -47,6 +47,12 @@ nav {
   border: 30px solid;
   border-image: url(../assets/border.png) 30;
   border-image-outset: 10px;
+  font-family: "Celestia Redux", serif;
+}
+
+nav h5:hover{
+  color: #E01D76;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .router-link-exact-active,

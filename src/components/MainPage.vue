@@ -6,7 +6,7 @@
     </div>
     <li v-for="item in store.aradata" style="list-style-type: none; " class="col-4 d-flex card">
           <div class="flex-fill justify-content-center">
-            <div class="text-center p-4">
+            <div class="name text-center p-4">
               <h3>{{ item.name }} </h3>
               <h3>{{ item.alias }} </h3>
             </div>
@@ -27,6 +27,8 @@
 </template>
 
 <style scoped>
+
+
 /* .photo{
   background-color: #FFF5A6;
   border-bottom: 20px solid;
@@ -83,6 +85,13 @@
   border-image: url(../assets/recipes/border.png) 30;
   border-image-outset: 10px;
   text-align: center;
+  font-family: "Celestia Redux", serif;
+  color: #525252;
+}
+
+.name{
+  font-family: "Celestia Redux", serif;
+  color: #525252;
 }
 
 .card{
@@ -106,12 +115,16 @@
   margin-bottom: 40px;
   margin-left: 15.4%;
   gap: 20px;
+  font-family: "Involve Medium", sans-serif;
+  color: #525252;
 }
 
 .ingredients{
   margin-bottom: 40px;
   margin-left: 14%;
   gap: 20px;
+  font-family: "Involve Medium", sans-serif;
+  color: #525252;
 }
 
 #list {

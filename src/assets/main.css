@@ -7,3 +7,18 @@
   background-image: linear-gradient(to bottom, #fcc982, #f9d493, #f7dea5, #f6e7b8, #f7f0cc, #ecf0cf,
   #e1f0d3,#d9efd8, #bce6d6, #a0dcda, #8cd0e0, #85c1e4);
 }
+
+@font-face {
+  font-family: "Celestia Redux";
+  src: url(../assets/fonts/CelestiaMediumRedux.ttf);
+}
+
+@font-face {
+  font-family: "Involve Medium";
+  src: url(../assets/fonts/InvolveMedium.ttf);
+}
+
+@font-face {
+  font-family: "Involve Regular";
+  src: url(../assets/fonts/InvolveRegular.ttf);
+}
