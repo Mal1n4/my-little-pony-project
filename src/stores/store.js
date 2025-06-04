@@ -5,7 +5,9 @@ export const PonyStore = defineStore('counter', {
         name: 'Рецепты',
         fetchdata: null,
         aradata: [
-            {
+            {   
+                save_status: 0,
+                id: 0,
                 name: 'Эггног',
                 alias: '(Шотландская версия гоголя-моголя)',
                 link: '/eggnog',
@@ -40,6 +42,8 @@ export const PonyStore = defineStore('counter', {
                 fact: 'Интересный факт Сюжет эпизода основан на повсети Чарльза Дикенса "Рождественская песнь в прозе"'
             },
             {
+                save_status: 0,
+                id: 1,
                 name: 'Сапфировые кексики',
                 link: '/sapphire-cakes',
                 img: '/src/assets/recipes/sapcakes.png',
@@ -59,6 +63,8 @@ export const PonyStore = defineStore('counter', {
                 episode: null,
             },
             {
+                save_status: 0,
+                id: 2,
                 name: 'Апельсиново-клюквенный пунш',
                 link: '/punch',
                 img: '/src/assets/recipes/punch.png',
@@ -112,6 +118,10 @@ export const PonyStore = defineStore('counter', {
                     },
                 })
                 .then((response) => console.log(response.json()))
+            },
+            statusUpdate(item){
+                item.save_status = (item.save_status + 1) % 2;
+                alert(item.save_status);
             },
     }
 })

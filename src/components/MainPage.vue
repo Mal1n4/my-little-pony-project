@@ -22,7 +22,7 @@
                 {{ ingr }}
               </li></div></span>
             </div>
-            <span class="btns d-flex"><div class="saves"><img class="save" src="../assets/buttons/save.png" alt="Сохранить" width="173px" height="29px"><img class="save_hover" src="../assets/buttons/save_hover.png" alt="Сохранить" width="173px" height="29px"></div>
+            <span class="btns d-flex"><div class="saves"><img class="save" src="../assets/buttons/save.png" alt="Сохранить" width="173px" height="29px"><img @:click="store.statusUpdate(item); buttonUpdate(item)" class="save_hover" src="../assets/buttons/save_hover.png" alt="Сохранить" width="173px" height="29px"></div>
               <RouterLink :to="item['link']"><div class="cooks"><img class="cook" src="../assets/buttons/cook.png" alt="Готовить" width="173px" height="29px"><img class="cook_hover" src="../assets/buttons/cook_hover.png" alt="Готовить" width="173px" height="29px"></div></RouterLink></span>
           </div>
     </li>
@@ -162,6 +162,17 @@ a {
 </style>
 
 <script setup>
-  import { PonyStore } from '../stores/store.js'
-  const store = PonyStore()
+  import { PonyStore } from '../stores/store.js';
+  const store = PonyStore();
+  
+  const buttonUpdate = (item) => {
+    if(item.save_status){
+    document.getElementsByClassName("save")[item.id].src = "/src/assets/buttons/saved.png";
+    document.getElementsByClassName("save_hover")[item.id].src = "/src/assets/buttons/delete.png";
+    }
+    else{
+      document.getElementsByClassName("save")[item.id].src = "/src/assets/buttons/save.png";
+      document.getElementsByClassName("save_hover")[item.id].src = "/src/assets/buttons/save_hover.png";
+    }
+  };
 </script>
