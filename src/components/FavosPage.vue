@@ -4,6 +4,7 @@
         <h2 class="m-4">Книга рецептов!</h2>
         <h3 class="m-4">Здесь сохраняются все рецепты, которые тебе понравились. Что ты хочешь приготовить сегодня?</h3>
       </div>
+      <img class="spike-favs" src="../assets/ponies/spike_favs.png" alt="Спайк в поварском колпаке с противнем" width="149" height="150">
       <li class="recipe" v-for="recipe in store.aradata.filter((item) => item.save_status == 1)" style="list-style-type: none; ">
         <span class="d-flex"><img class="min_photo" :src="recipe['img']" alt="Фото готового рецепта">
           <div class="action justify-content-center">
@@ -14,22 +15,39 @@
                 <div class="cooks"><img class="cook" src="../assets/buttons/cook.png" alt="Готовить" width="173px" height="29px"><img class="cook_hover" src="../assets/buttons/cook_hover.png" alt="Готовить" width="173px" height="29px"></div>
               </RouterLink>
               <div class="deletes">
-                <img class="delete" src="../assets/buttons/delete.png" alt="Удалить" width="173px" height="29px"><img @:click="store.statusUpdate(item);" class="delete_hover" src="../assets/buttons/delete_hover.png" alt="Удалить" width="173px" height="29px">
+                <img class="delete" src="../assets/buttons/delete.png" alt="Удалить" width="173px" height="29px"><img @:click="store.statusUpdate(recipe);" class="delete_hover" src="../assets/buttons/delete_hover.png" alt="Удалить" width="173px" height="29px">
               </div>
             </div>
           </div>
         </span>
       </li>
+      <img class="pinkie-cooks" src="../assets/ponies/pinkie_cooks.png" alt="Пинки готовит" width="244" height="250">
     </div>
 </template>
 
 <style scoped>
+.spike-favs{
+  position: absolute;
+  left: 1125px;
+  bottom: 260px;
+  z-index: 1;
+}
+
+.pinkie-cooks{
+  position: relative;
+  right: 485px;
+  bottom: 280px;
+  z-index: 1;
+}
+
 .buttons{
   margin-top: 30px;
+  gap: 90px;
 }
 
 .action{
   width: 437px;
+  align-content: center;
 }
 
 .min_photo{
@@ -48,7 +66,6 @@
   border-radius: 30px;
   display: flex;
   align-items: center;
-  /* padding-left: 17px; */
   text-align: center;
   font-family: "Celestia Redux", serif;
   color: #525252;
@@ -74,6 +91,7 @@
   margin-top: 110px;
   display: grid;
   place-items: center;
+  margin-bottom: -250px;
 }
 
 .cooks .cook_hover {
@@ -109,4 +127,5 @@
 <script setup>
   import { PonyStore } from '../stores/store.js';
   const store = PonyStore();
+  
 </script>

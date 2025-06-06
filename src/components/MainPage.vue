@@ -120,6 +120,7 @@
 
 .main-content{
   margin-top: 110px;
+  margin-bottom: -110px;
   display: grid;
   place-items: center;
 }

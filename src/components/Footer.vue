@@ -11,5 +11,6 @@
     border: 20px solid;
     border-image: url(../assets/border_f.png) 30;
     border-image-outset: 10px;
+    margin-top: 110px;
   }
 </style>
