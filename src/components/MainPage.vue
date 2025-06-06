@@ -167,7 +167,7 @@ a {
   
   const buttonUpdate = (item) => {
     if(item.save_status){
-    document.getElementsByClassName("save")[item.id].src = "/src/assets/buttons/saved.png";
+    document.getElementsByClassName("save")[item.id].src = "/src/assets/buttons/saved.png"; //id рецепта должно совпадать с позицией на странице (т.е. с порядковым номером элемента класса на странице)
     document.getElementsByClassName("save_hover")[item.id].src = "/src/assets/buttons/delete.png";
     }
     else{
@@ -175,4 +175,14 @@ a {
       document.getElementsByClassName("save_hover")[item.id].src = "/src/assets/buttons/save_hover.png";
     }
   };
+
+  import { onMounted } from 'vue';
+
+  onMounted(() => {
+    let l = document.getElementsByClassName("save").length;
+      for (let i = 0; i < l; i++){
+        buttonUpdate(store.aradata[i]);
+      }
+    }
+  );
 </script>
