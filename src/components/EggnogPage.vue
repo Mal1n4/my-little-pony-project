@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-center">
               <img class="photo" :src="store.aradata[0]['episode_img']" alt="Скриншот из серии" width="656px" height="369px">
             </div>
-            <div class="comment">
+            <div class="episode-comment">
                 <li v-for="comment in store.aradata[0].episode_comment" class="py-2">
                     {{ comment }}
                 </li>
@@ -44,14 +44,43 @@
                 {{ step }}
               </li></div></span>
             </div>
-            <span class="btns d-flex"><div class="saves"><img class="save" src="../assets/buttons/save.png" alt="Сохранить" width="173px" height="29px"><img class="save_hover" src="../assets/buttons/save_hover.png" alt="Сохранить" width="173px" height="29px"></div>
+            <span class="btns d-flex"><div class="saves"><img class="save" src="../assets/buttons/save.png" alt="Сохранить" width="173px" height="29px"><img @:click="store.statusUpdate(store.aradata[0]); buttonUpdate(store.aradata[0])" class="save_hover" src="../assets/buttons/save_hover.png" alt="Сохранить" width="173px" height="29px"></div>
               <div class="print"><img class="typewr" src="../assets/buttons/print.png" alt="Печать" width="173px" height="29px"><img class="typewr_hover" src="../assets/buttons/print_hover.png" alt="Печать" width="173px" height="29px"></div></span>
           </div>
+        </div>
+        <div class="discuss">
+          <h2 class="m-4">Обсуждение</h2>
+        </div>
+        <div class="msg-form">
+          <span class="d-flex"><img class="avatar" src="../assets/ava.jpg" alt="Аватар профиля" width="88px" height="55px">
+            <div class="user-comment">
+              <textarea class="input input-textarea" name="comment" cols="37" rows="2" placeholder="Поделись своим впечатлением о рецепте" style="overflow: hidden; border: none;"></textarea>
+              <img class="send" src="../assets/buttons/send.png" alt="Отправить" width="173px" height="29px">
+            </div>
+          </span>
+        </div>
+        <div class="comments">
+
         </div>
   </div>
 </template>
 
 <style scoped>
+.avatar{
+  margin-left: 55px;
+  margin-top: 25px;
+}
+
+.user-comment{
+  margin-top: 25px;
+  margin-left: 55px;
+  margin-bottom: 25px;
+}
+
+textarea:focus{
+  outline: none;
+}
+
 .fact{
   position: absolute;
   top: 850px;
@@ -75,7 +104,7 @@
   list-style-type: none; 
 }
 
-.comment{  
+.episode-comment{  
   font-family: "Involve Medium", sans-serif;
   color: #525252;
   max-width: 437px;
@@ -117,6 +146,22 @@
  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
+.msg-form{
+  background-color: #FFFFFF;
+  height: auto;
+  margin-bottom: 20px;
+  width: 656px;
+  border-radius: 30px;
+  font-family: "Involve Regular", sans-serif;
+  color: #525252;
+  min-height: 120px;
+}
+
+.send:hover{
+ border-radius: 4px;
+ box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25); 
+}
+
 .print .typewr_hover {
  display: none;
 }
@@ -131,17 +176,17 @@
  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-.hello{
-  background-color: #FFD863;
+.discuss{
+  background-color: #ADFBFE;
   height: auto;
-  margin-bottom: 110px;
-  max-width: 656px;
+  margin-bottom: 55px;
+  width: 656px;
   border: 20px solid;
   border-image: url(../assets/recipes/border.png) 30;
   border-image-outset: 10px;
   text-align: center;
   font-family: "Celestia Redux", serif;
-  color: #525252;
+  color: #60549B;
 }
 
 .name{
@@ -217,4 +262,25 @@ a {
 <script setup>
   import { PonyStore } from '../stores/store.js'
   const store = PonyStore()
+
+  const buttonUpdate = (item) => {
+    if(item.save_status){
+    document.getElementsByClassName("save")[item.id].src = "/src/assets/buttons/saved.png"; //id рецепта должно совпадать с позицией на странице (т.е. с порядковым номером элемента класса на странице)
+    document.getElementsByClassName("save_hover")[item.id].src = "/src/assets/buttons/delete.png";
+    }
+    else{
+      document.getElementsByClassName("save")[item.id].src = "/src/assets/buttons/save.png";
+      document.getElementsByClassName("save_hover")[item.id].src = "/src/assets/buttons/save_hover.png";
+    }
+  };
+
+  import { onMounted } from 'vue';
+
+  onMounted(() => {
+    let l = document.getElementsByClassName("save").length;
+      for (let i = 0; i < l; i++){
+        buttonUpdate(store.aradata[i]);
+      }
+    }
+  );
 </script>

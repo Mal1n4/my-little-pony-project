@@ -11,7 +11,7 @@
             <div class="w-100 justify-content-center">
                 <div class="container align-items-center justify-content-center">
                     <ul class="navbar-nav me-auto align-items-center">
-                          <li class="nav-item col-2 ">
+                        <li class="nav-item col-2 ">
                             <RouterLink to="/"> <img :src="logoSrc" alt="logo" width="124px" height="73px"></RouterLink>
                         </li>
                         <li class="nav-item col-8 d-flex justify-content-around align-items-center">
