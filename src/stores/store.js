@@ -121,7 +121,7 @@ export const PonyStore = defineStore('counter', {
             },
             statusUpdate(item){
                 item.save_status = (item.save_status + 1) % 2;
-                alert(item.save_status);
+                // alert(item.save_status);
             },
     }
 })
