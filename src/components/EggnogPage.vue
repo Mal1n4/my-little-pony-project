@@ -16,6 +16,15 @@
             </div>
         </div>
     </div>
+    <div class="fact">
+      <img class="cloud" src="../assets/recipes/cloud.png" alt="Облако" width="446px" height="468px">
+      <div class="fact-text">
+        <h3 class="pink-text">Интересный факт</h3>
+        <li v-for="item in store.aradata[0].fact" >
+                    <h5>{{ item }}</h5>
+        </li>
+      </div>
+    </div>
     <img class="rainbow" src="../assets/ponies/rainb_eggnog.png" alt="Радуга в костюме" width="362px" height="221px">
     <div class="col-4 d-flex card">
           <div class="flex-fill justify-content-center">
@@ -43,6 +52,29 @@
 </template>
 
 <style scoped>
+.fact{
+  position: absolute;
+  top: 850px;
+  z-index: 1;
+  left: 150px;
+}
+
+.pink-text{
+  color: #E13181;
+}
+
+.fact-text{
+  width: 316px;
+  display: grid;
+  text-align: center;
+  font-family: "Celestia Redux", serif;
+  position: relative;
+  bottom: 315px;
+  left: 75px;
+  rotate: 5deg;
+  list-style-type: none; 
+}
+
 .comment{  
   font-family: "Involve Medium", sans-serif;
   color: #525252;

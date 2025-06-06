@@ -127,5 +127,4 @@
 <script setup>
   import { PonyStore } from '../stores/store.js';
   const store = PonyStore();
-  
 </script>
