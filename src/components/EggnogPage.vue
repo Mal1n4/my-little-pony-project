@@ -55,17 +55,25 @@
           <span class="d-flex"><img class="avatar" src="../assets/ava.jpg" alt="Аватар профиля" width="88px" height="55px">
             <div class="user-comment">
               <textarea class="input input-textarea" name="comment" cols="37" rows="2" placeholder="Поделись своим впечатлением о рецепте" style="overflow: hidden; border: none;"></textarea>
-              <img class="send" src="../assets/buttons/send.png" alt="Отправить" width="173px" height="29px">
+              <img class="send" src="../assets/buttons/send.png" alt="Отправить" width="173px" height="29px" @click="Popup">
             </div>
           </span>
         </div>
         <div class="comments">
 
-        </div>
+        </div>  
   </div>
+  <Auth v-show="isVisible" class="popup"></Auth>
 </template>
 
 <style scoped>
+.popup{
+  position: fixed;
+  left: 33%;
+  top: 5%; 
+  box-shadow: 1px 1px 100px 100px rgba(118, 133, 40, 0.2);
+}
+
 .avatar{
   margin-left: 55px;
   margin-top: 25px;
@@ -260,6 +268,7 @@ a {
 </style>
 
 <script setup>
+  import Auth from '../components/AuthPopup.vue' 
   import { PonyStore } from '../stores/store.js'
   const store = PonyStore()
 
@@ -283,4 +292,12 @@ a {
       }
     }
   );
+
+  import { ref } from 'vue';
+
+  const isVisible = ref(false);
+
+  const Popup = () => {
+    isVisible.value = !isVisible.value;
+  };
 </script>
