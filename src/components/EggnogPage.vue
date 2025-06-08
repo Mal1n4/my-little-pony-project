@@ -63,7 +63,7 @@
 
         </div>  
   </div>
-  <Auth v-show="isVisible" class="popup"></Auth>
+  <Auth v-show="Visible" class="popup"></Auth>
 </template>
 
 <style scoped>
@@ -295,9 +295,9 @@ a {
 
   import { ref } from 'vue';
 
-  const isVisible = ref(false);
+  const Visible = ref(false);
 
   const Popup = () => {
-    isVisible.value = !isVisible.value;
+    Visible.value = !Visible.value;
   };
 </script>

@@ -5,7 +5,7 @@
         </div>
         <h2 class="d-flex justify-content-center ">Авторизация</h2>
         <div class="main-action">
-            <input type="text" id="validationMail" class="form-control" placeholder="e-mail" required />
+            <input type="email" id="validationMail" class="form-control" placeholder="e-mail" required />
             <input type="password" id="validationPwd" class="form-control" placeholder="пароль" required />
             <h5 class="main-questions">Не помнишь пароль?</h5>
             <RouterLink to="/sign-up"><h5 class="main-questions">Регистрация</h5></RouterLink>

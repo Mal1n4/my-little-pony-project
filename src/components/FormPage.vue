@@ -1,3 +1,134 @@
 <template>
-    
+    <div class="main-content">
+        <img class="pinkie-baloons" src="../assets/ponies/pinkie_baloons.png" alt="Пинки Пай на шариках" width="266" height="370">
+        <div class="hello">
+            <h2 class="m-4">Давай знакомиться!</h2>
+            <h3 class="m-4">Расскажи немного о себе, <br> заполнив анкету нашей с тобой дружбы!</h3>
+        </div>
+        <div class="signup-form">
+            <span class="input-title">Как тебя зовут?</span>
+            <input type="text" v-model="store.username">
+            <span class="input-title">Сколько тебе лет?</span>
+            <input type="text" v-model="store.age">
+            <span class="input-title">Какой у тебя адрес электронной почты?</span>
+            <input type="email" v-model="store.email">
+            <span class="input-title">Придумай кодовое слово</span>
+            <input type="password" v-model="store.password1">
+            <span class="input-title">Напиши слово ещё раз</span>
+            <input type="password">
+            <span class="input-title">Твоя любимая пони?</span>
+            <input type="text" v-model="store.fav_pony">
+            <div class="d-flex" style="width: 494px;"><div><img src="../assets/buttons/marker_place.png" alt="Подтвердить" width="40px" height="40px"></div><div class="warning">Эта информация будет видна разработчику</div></div>
+            <div class="send-form-button" @:click="store.sendmessage(); Popup()">Отправить</div>
+        </div>
+        <img class="meet" src="../assets/ponies/meet_sticker.png" alt="Пинки Пай обнимает Рарити" width="253" height="218">
+    </div>
+    <EmailPopup v-show="Visible" class="popup"></EmailPopup>
 </template>
+
+<style scoped>
+.popup{
+  position: fixed;
+  left: 33%;
+  top: 5%; 
+  box-shadow: 1px 1px 100px 100px rgba(118, 133, 40, 0.2);
+}
+
+.meet{
+    position: absolute;
+    right: 75%;
+    top: 1559px;
+}
+
+.pinkie-baloons{
+    position: absolute;
+    left: 75%;
+    top: 200px;
+    z-index: 1;
+}
+
+.warning{
+    margin-left: 44px;
+    font-size: 20px;
+}
+
+.send-form-button{
+    background-color: #DFC168;
+    width: 274px;
+    height: 79px;
+    border-radius: 30px;
+    display: grid;
+    padding-top: 12px;
+    justify-items: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color: #525252;
+}
+
+.send-form-button:hover {
+    background-color: #770803;
+    color: #FFF8E0;
+}
+
+input{
+    width: 495px;
+    height: 61px;
+    border: 10px solid;
+    border-image: url(../assets/buttons/border_form.png) 30;
+    border-image-outset: 5px;
+    border-radius: 30px;
+    background-color: #FFF8E0;
+    margin-bottom: 30px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.signup-form{
+    display: grid;
+    justify-items: center;
+    background-color: #FFF8E0;
+    width: 656px;
+    height: 1263px;
+    border-radius: 30px;
+    outline: 10px #DFC168 solid;
+    outline-offset: -10px;
+    font-size: 30px;
+    padding-top: 55px;
+}
+
+.main-content{
+  margin-top: 110px;
+  display: grid;
+  place-items: center;
+  font-family: "Celestia Redux", serif;
+  color: #525252;
+}
+
+.hello{
+  background-color: #FFD863;
+  height: auto;
+  margin-bottom: 110px;
+  width: 656px;
+  border: 20px solid;
+  border-image: url(../assets/recipes/border.png) 30;
+  border-image-outset: 10px;
+  text-align: center;
+}
+</style>
+
+<script setup>
+import EmailPopup from "../components/EmailPopup.vue";
+
+import { ref } from 'vue';
+
+const Visible = ref(false);
+
+const Popup = () => {
+Visible.value = !Visible.value;
+};
+
+import { PonyStore } from '../stores/store.js';
+const store = PonyStore();
+</script>

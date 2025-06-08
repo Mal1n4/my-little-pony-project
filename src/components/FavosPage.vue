@@ -28,8 +28,8 @@
 <style scoped>
 .spike-favs{
   position: absolute;
-  left: 1125px;
-  bottom: 260px;
+  left: 75%;
+  top: 300px;
   z-index: 1;
 }
 
@@ -91,7 +91,7 @@
   margin-top: 110px;
   display: grid;
   place-items: center;
-  margin-bottom: -250px;
+  margin-bottom: -250px; /* чтобы позиционировать картинку */
 }
 
 .cooks .cook_hover {

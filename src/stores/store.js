@@ -103,21 +103,24 @@ export const PonyStore = defineStore('counter', {
                 this.fetchdata=result;
                 this.aradata[1].episode=result.data[35].image;
 
-                console.log( this.fetchdata)
+                console.log(this.fetchdata)
             },
             sendmessage() {
                 //  создаем объект который необходимо направить по api
-                let ContactForm = {
-                    title: this.nickname,
-                    body: this.msg,
-
+                let User = {
+                    name: this.username,
+                    username: this.age,
+                    email: this.email,
+                    phone: this.password1,
+                    website: this.fav_pony,
                 };
+                
                 //  указываем адрес
-                fetch('https://jsonplaceholder.typicode.com/posts', {
+                fetch('https://jsonplaceholder.typicode.com/users', {
                     method: 'POST',
                 // преобразуем наш объект в json формат
                     body: JSON.stringify({
-                        ContactForm
+                        User
                     }),
                 // устанавливаем заголовки в котором будет написано что форма json
                     headers: {
