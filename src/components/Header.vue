@@ -4,6 +4,15 @@
   import foodSrc from '../assets/apple_pie.png'
   import drinkSrc from '../assets/cider.png'
   import favSrc from '../assets/apples.png'
+  import Auth from '../components/AuthPopup.vue'
+
+  import { ref } from 'vue';
+
+  const Visible = ref(false);
+
+  const Popup = () => {
+    Visible.value = !Visible.value;
+  };
 </script>
 
 <template>
@@ -30,7 +39,7 @@
                               <img :src="favSrc" alt="favs" width="55px" height="55px">
                             </div> </RouterLink>
                         </li>
-                        <li class="nav-item col-2 d-flex justify-content-end align-items-center gap-2">
+                        <li class="nav-item col-2 d-flex justify-content-end align-items-center gap-2" @click="Popup">
                             <h5>Профиль</h5>
                             <img :src="profileSrc" alt="profile" width="88px" height="55px">
                         </li>
@@ -38,9 +47,18 @@
                 </div>
             </div>
   </nav>
+  <Auth v-show="Visible" class="popup"></Auth>
 </template>
 
 <style scoped>
+.popup{
+  position: fixed;
+  left: 33%;
+  top: 5%; 
+  box-shadow: 1px 1px 100px 100px rgba(118, 133, 40, 0.2);
+  z-index: 2;
+}
+
 nav {
   background-color: #FFF377;
   height: 90px;

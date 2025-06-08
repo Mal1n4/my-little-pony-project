@@ -18,7 +18,7 @@
             <input type="password">
             <span class="input-title">Твоя любимая пони?</span>
             <input type="text" v-model="store.fav_pony">
-            <div class="d-flex" style="width: 494px;"><div><img src="../assets/buttons/marker_place.png" alt="Подтвердить" width="40px" height="40px"></div><div class="warning">Эта информация будет видна разработчику</div></div>
+            <div class="d-flex agree-click" @:click="store.agreeStatusUpdate(); agreeUpdate()" style="width: 494px;"><img class="agree-place" src="../assets/buttons/marker_place.png" alt="Подтвердить" width="40px" height="40px"><div class="yes">О</div><div class="warning">Эта информация будет видна разработчику</div></div>
             <div class="send-form-button" @:click="store.sendmessage(); Popup()">Отправить</div>
         </div>
         <img class="meet" src="../assets/ponies/meet_sticker.png" alt="Пинки Пай обнимает Рарити" width="253" height="218">
@@ -27,6 +27,21 @@
 </template>
 
 <style scoped>
+.yes{
+    position: absolute;
+    padding-left: 7px;
+    margin-top: -3px;
+    color: #770803;
+    font-family: "Involve Medium";
+    font-size: 30px;
+    display: none;
+}
+
+.agree-place:hover{
+    box-shadow: inset 0px 0px 5px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
 .popup{
   position: fixed;
   left: 33%;
@@ -126,9 +141,28 @@ import { ref } from 'vue';
 const Visible = ref(false);
 
 const Popup = () => {
-Visible.value = !Visible.value;
+    if(store.agree){
+        Visible.value = !Visible.value;
+    }
 };
 
 import { PonyStore } from '../stores/store.js';
 const store = PonyStore();
+
+const agreeUpdate = () => {
+    if(store.agree){
+        document.getElementsByClassName("yes")[0].style = "display: block;";
+    }
+    else{
+        document.getElementsByClassName("agree-place")[0].src = "/src/assets/buttons/marker_place.png";
+        document.getElementsByClassName("yes")[0].style = "display: none;";
+    }
+};
+
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    agreeUpdate();
+}
+);
 </script>

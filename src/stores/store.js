@@ -4,6 +4,7 @@ export const PonyStore = defineStore('counter', {
         count: 0,
         name: 'Рецепты',
         fetchdata: null,
+        agree: 0,
         aradata: [
             {   
                 save_status: 0,
@@ -106,31 +107,36 @@ export const PonyStore = defineStore('counter', {
                 console.log(this.fetchdata)
             },
             sendmessage() {
-                //  создаем объект который необходимо направить по api
-                let User = {
-                    name: this.username,
-                    username: this.age,
-                    email: this.email,
-                    phone: this.password1,
-                    website: this.fav_pony,
-                };
-                
-                //  указываем адрес
-                fetch('https://jsonplaceholder.typicode.com/users', {
-                    method: 'POST',
-                // преобразуем наш объект в json формат
-                    body: JSON.stringify({
-                        User
-                    }),
-                // устанавливаем заголовки в котором будет написано что форма json
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                .then((response) => console.log(response.json()))
+                if(this.agree){
+                    //  создаем объект который необходимо направить по api
+                    let User = {
+                        name: this.username,
+                        username: this.age,
+                        email: this.email,
+                        phone: this.password1,
+                        website: this.fav_pony,
+                    };
+                    
+                    //  указываем адрес
+                    fetch('https://jsonplaceholder.typicode.com/users', {
+                        method: 'POST',
+                    // преобразуем наш объект в json формат
+                        body: JSON.stringify({
+                            User
+                        }),
+                    // устанавливаем заголовки в котором будет написано что форма json
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8',
+                        },
+                    })
+                    .then((response) => console.log(response.json()))
+                }
             },
             statusUpdate(item){
                 item.save_status = (item.save_status + 1) % 2;
+            },
+            agreeStatusUpdate(){
+                this.agree = (this.agree + 1) % 2;
             },
     }
 })
