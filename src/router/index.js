@@ -5,7 +5,7 @@ import DrinksView from '../views/DrinksView.vue'
 import FavosView from '../views/FavosView.vue'
 import EggnogView from '../views/EggnogView.vue'
 import SignUpView from '../views/SignUpView.vue'
-// import SapcakeView from '../views/SapcakeView.vue'
+import SapcakeView from '../views/SapcakeView.vue'
 // import PunchView from '../views/PunchView.vue'
 
 const routes = [
@@ -34,11 +34,11 @@ const routes = [
       name: 'eggnog',
       component: EggnogView,
     },
-    // {
-    //   path: '/sapphier-cakes',
-    //   name: 'sapphier-cakes',
-    //   component: EggnogView,
-    // },
+    {
+      path: '/sapphire-cakes',
+      name: 'sapphire-cakes',
+      component: SapcakeView,
+    },
     // {
     //   path: '/punch',
     //   name: 'punch',
