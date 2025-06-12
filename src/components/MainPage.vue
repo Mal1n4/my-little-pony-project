@@ -142,14 +142,6 @@
   color: #525252;
 }
 
-#list {
-  margin-left: 24.3%;
-}
-
-.contact{
-  margin-left: 48%;
-}
-
 .router-link-exact-active,
 .router-link-active {
   color: inherit; 
@@ -160,6 +152,123 @@ a {
   color: inherit; 
   text-decoration: none; 
 }
+
+@media (max-width: 1000px){
+  .rainbow{
+    position: absolute;
+    right: 3%;
+    top: 345px;
+    z-index: 1;
+  }
+
+  .spike{
+    position: absolute;
+    left: 8%;
+    top: 2500px;
+    z-index: 1;
+  }
+
+  .pinki{
+    position: absolute;
+    right: 7%;
+    top: 3570px;
+    z-index: 1;
+  }
+
+}
+
+@media (max-width: 700px){
+  .card {
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .hello {
+    min-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px){
+  .card {
+    min-width: 300px;
+    width: 100%;
+    margin-bottom: 66px;
+    border: inset 10px solid;
+    border-image: url(../assets/recipes/card_border.png) 200;
+    border-image-outset: 0px;
+    border-radius: 30px;
+  }
+
+  .hello {
+    min-width: 300px;
+    width: 100%;
+    margin-bottom: 66px;
+    border: inset 10px solid;
+    border-image: url(../assets/recipes/border.png) 200;
+    border-image-outset: 0px;
+    border-radius: 30px;
+  }
+
+  h2, h3{
+    font-size: 22px;
+  }
+
+  .photo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btns{
+    margin-bottom: 30px;
+  }
+
+  .btns img{
+    width: 90px;
+    height: auto;
+  }
+
+  .time{
+    margin-top: 40px;
+    margin-bottom: 25px;
+    margin-left: 15.4%;
+    gap: 20px;
+    font-family: "Involve Medium", sans-serif;
+    color: #000000;
+  }
+
+  .ingredients{
+    margin-bottom: 40px;
+    margin-left: 14%;
+    gap: 20px;
+    font-family: "Involve Medium", sans-serif;
+    color: #000000;
+  }
+
+  .time p, .ingredients li{
+    font-size: 12px;
+  }
+
+  .time img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .ingredients img{
+    width: 35px;
+    height: 40px;
+  }
+
+  .rainbow, .spike, .pinki {
+    display: none;
+  }
+
+  .main-content {
+    margin-top: 66px;
+    overflow-x: hidden;
+  }
+}
+
 </style>
 
 <script setup>

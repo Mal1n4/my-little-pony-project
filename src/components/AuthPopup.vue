@@ -90,6 +90,54 @@ a {
     color: #000000;
 }
 
+@media (max-width: 576px){
+    .close-string{
+        display: flex;
+        justify-content: end;
+        width: 250px;
+        height: 32px;
+    }
+
+    .auth{
+        display: grid;  
+        justify-content: center;
+        width: 250px;
+        height: auto;
+        border: 20px solid;
+        border-image: url(../assets/buttons/border_auth.png) 65;
+        border-image-outset: 15px;
+        border-radius: 20px;
+        font-family: "Celestia Redux", serif;
+        color: #525252;
+    }
+
+    .auth h2{
+        font-size: 22px;
+    }
+
+    .form-control{
+        width: 200px;
+        height: 60px;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+
+    .main-action h5{
+        font-size: 12px;
+    }
+
+    .enter-button{
+        width: 125px;
+        height: 50px;
+        border-radius: 30px;
+        color: white;
+        font-size: 20px;
+        padding-top: 10px;
+    }
+
+
+}
+
 </style>
 
 <script setup>

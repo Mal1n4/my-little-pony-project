@@ -25,7 +25,6 @@
         </li>
       </div>
     </div>
-    <!-- <img class="rainbow" src="../assets/ponies/rainb_eggnog.png" alt="Радуга в костюме" width="362px" height="221px"> -->
     <img class="spike" src="../assets/ponies/spike_sapcake.png" alt="Спайк с сапфировым кексиком" width="119px" height="138px">
     <div class="col-4 d-flex card">
           <div class="flex-fill justify-content-center">
@@ -273,6 +272,209 @@ a {
   color: inherit; 
   text-decoration: none; 
 }
+
+@media (max-width: 1400px){
+  .spike{
+    position: absolute;
+    right: 3%;
+    top: 1400px;
+    z-index: 1;
+  }
+
+  .fact{
+    position: initial;
+    margin-bottom: -140px;
+    top: 830px;
+    z-index: 1;
+    left: 0px;
+  }
+
+}
+
+@media (max-width: 700px){
+  .card {
+    margin-top: 66px;
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .card img{
+    max-width: 550px;
+    height: auto;
+  }
+
+  .spike{
+    position: inherit;
+  }
+
+  .card .ingredients img{
+    height: 60px;
+    width: auto;
+  }
+
+  .card .cooking img{
+    height: 47px;
+    width: auto;
+  }
+
+  .main-content {
+    margin-top: 66px;
+    overflow-x: hidden;
+    display: contents;
+  }
+
+  .discuss{
+    width: 100%;
+  }
+
+  .msg-form{
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 576px){
+  .hello{
+    margin-top: 66px;
+  }
+
+  .fact{
+    position:initial;
+    margin-top: -15%;
+    margin-bottom: -40%;
+    margin-left: 0%;
+  }
+
+  .card {
+    min-width: 300px;
+    width: 100%;
+    margin-bottom: 66px;
+    border: inset 10px solid;
+    border-image: url(../assets/recipes/card_border.png) 200;
+    border-image-outset: 0px;
+    border-radius: 30px;
+  }
+
+  .card img{
+    max-width: 300px;
+  }
+
+  .card .ingredients img{
+    height: 44px;
+    width: auto;
+  }
+
+  .card .cooking img{
+    height: 36px;
+    width: auto;
+  }
+
+  .msg-form{
+    min-width: 300px;
+    width: 100%;
+    margin-bottom: 66px;
+    border: inset 10px solid;
+    border-image: url(../assets/recipes/card_border.png) 200;
+    border-image-outset: 0px;
+    border-radius: 30px;
+    font-size: 12px;
+  }
+
+  .msg-form .send{
+    width: 90px;
+    height: auto;
+  }
+
+  .discuss{
+    min-width: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: inset 10px solid;
+    border-image: url(../assets/recipes/border.png) 200;
+    border-image-outset: 0px;
+  }
+
+  h2, h3{
+    font-size: 22px;
+  }
+
+  .photo {
+    width: auto;
+    height: 200px;
+  }
+
+  .btns{
+    margin-bottom: 30px;
+  }
+
+  .btns img{
+    width: 90px;
+    height: auto;
+  }
+
+  .episode-comment li{
+    font-family: "Involve Medium", sans-serif;
+    color: #000000;
+  }
+
+  .time{
+    margin-top: 40px;
+    margin-bottom: 25px;
+    gap: 20px;
+    font-family: "Involve Medium", sans-serif;
+    color: #000000;
+  }
+
+  .ingredients{
+    margin-bottom: 40px;
+    font-family: "Involve Medium", sans-serif;
+    color: #000000;
+  }
+
+  .cooking{
+    max-width: 300px;
+  }
+
+  .time p, .ingredients li, .cooking li, .episode-comment li{
+    font-size: 12px;
+    color: #000000;
+  }
+
+  .time img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .ingredients img{
+    width: 35px;
+    height: 40px;
+  }
+
+  .cooking img{
+    width: 60px;
+    height: 35px;
+  }
+
+  .avatar{
+    width: auto;
+    height: 30px;
+  }
+
+  .main-content {
+    margin-top: 66%;
+    overflow-x: hidden;
+    display: contents;
+  }
+  
+  .popup{
+    position: fixed;
+    left: 19%;
+    top: 5%; 
+    box-shadow: 1px 1px 100px 100px rgba(118, 133, 40, 0.2);
+    z-index: 2;
+  }
+
+}
 </style>
 
 <script setup>
@@ -281,8 +483,9 @@ a {
   const store = PonyStore()
 
   const recid = 1;
+  const api_id = 35;
 
-  store.getApidata(recid);
+  store.getApidata(recid, api_id);
 
   const buttonUpdate = (item) => {
     if(item.save_status){

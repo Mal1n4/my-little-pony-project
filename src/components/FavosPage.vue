@@ -122,6 +122,109 @@
  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
+@media(max-width: 1200px){
+  .pinkie-cooks{
+    position: inherit;
+    z-index: 1;
+    margin-bottom: 200px;
+  }
+}
+
+@media (max-width: 1000px){
+.spike-favs{
+  position: absolute;
+  left: 75%;
+  top: 350px;
+  z-index: 1;
+}
+}
+
+@media( max-width: 700px){
+  .hello {
+    margin-top: 66px;
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .main-content{
+    margin-top: 66px;
+    display: grid;
+    display: contents;
+  }
+}
+
+@media (max-width: 576px){
+  .hello {
+      margin-top: 66px;
+      min-width: 300px;
+      width: 100%;
+      margin-bottom: 66px;
+      border: inset 10px solid;
+      border-image: url(../assets/recipes/border.png) 200;
+      border-image-outset: 0px;
+      border-radius: 30px;
+  }
+
+  .hello h2, h3{
+    font-size: 22px;
+  }
+
+  .min_photo{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+
+  .recipe{
+    width: 100%;
+    height: 120px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: "Celestia Redux", serif;
+    color: #525252;
+    border: inset 10px solid;
+    border-image: url(../assets/recipes/border.png) 200;
+    border-image-outset: 0px;
+    border-radius: 30px;
+  }
+
+  .action{
+    width: 300px;
+    align-content: center;
+  }
+
+  .buttons img{
+    width: 90px;
+    height: auto;
+  }
+
+  .recipe h3{
+    font-size: 15px;
+  }
+
+  .spike-favs{
+    position: inherit;
+    margin-left: 60%;
+    top: 300px;
+    z-index: 1;
+  }
+
+  .pinkie-cooks{
+    position: inherit;
+    margin-bottom: 66px;
+    z-index: 1;
+  }
+
+  .main-content{
+    margin-top: 66px;
+    display: grid;
+    display: contents;
+  }
+}
 </style>
 
 <script setup>

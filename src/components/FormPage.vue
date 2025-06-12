@@ -5,7 +5,7 @@
             <h2 class="m-4">Давай знакомиться!</h2>
             <h3 class="m-4">Расскажи немного о себе, <br> заполнив анкету нашей с тобой дружбы!</h3>
         </div>
-        <div class="signup-form">
+        <div class="signup-form d-grid justify-content-center">
             <span class="input-title">Как тебя зовут?</span>
             <input type="text" v-model="store.username">
             <span class="input-title">Сколько тебе лет?</span>
@@ -18,7 +18,7 @@
             <input type="password">
             <span class="input-title">Твоя любимая пони?</span>
             <input type="text" v-model="store.fav_pony">
-            <div class="d-flex agree-click" @:click="store.agreeStatusUpdate(); agreeUpdate()" style="width: 494px;"><img class="agree-place" src="../assets/buttons/marker_place.png" alt="Подтвердить" width="40px" height="40px"><div class="yes">О</div><div class="warning">Эта информация будет видна разработчику</div></div>
+            <div class="d-grid agree-click" @:click="store.agreeStatusUpdate(); agreeUpdate()" style="width: 494px;"><img class="agree-place" src="../assets/buttons/marker_place.png" alt="Подтвердить" width="40px" height="40px"><div class="yes">О</div><div class="warning">Эта информация будет видна разработчику</div></div>
             <div class="send-form-button" @:click="store.sendmessage(); Popup()">Отправить</div>
         </div>
         <img class="meet" src="../assets/ponies/meet_sticker.png" alt="Пинки Пай обнимает Рарити" width="253" height="218">
@@ -130,6 +130,103 @@ input:focus{
   border-image: url(../assets/recipes/border.png) 30;
   border-image-outset: 10px;
   text-align: center;
+}
+
+@media (max-width: 1000px){
+    .pinkie-baloons{
+        display: none;
+    }
+
+    .meet{
+        position: inherit;
+        margin-top: 66px;
+        top: 1559px;
+    }
+    
+    .popup{
+        left: 15%;
+    }
+}
+
+@media (max-width: 700px){
+    .hello {
+        min-width: 300px;
+        width: 100%;
+        margin-bottom: 66px;
+        border: inset 10px solid;
+        border-image: url(../assets/recipes/border.png) 200;
+        border-image-outset: 0px;
+        border-radius: 30px;
+    }
+
+    .signup-form{
+        min-width: 300px;
+        width: 100%;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 576px){
+    .hello {
+        min-width: 300px;
+        width: 100%;
+        margin-top: 66px;
+        margin-bottom: 66px;
+        border: inset 10px solid;
+        border-image: url(../assets/recipes/border.png) 200;
+        border-image-outset: 0px;
+        border-radius: 30px;
+    }
+
+    .signup-form{
+        min-width: 300px;
+        width: 100%;
+        font-size: 22px;
+    }
+
+    input{
+        width: calc(100% - 200px);
+        height: 30px;
+        border: 5px solid;
+        border-image: url(../assets/buttons/border_form.png) 30;
+        border-image-outset: 5px;
+        border-radius: 30px;
+        background-color: #FFF8E0;
+        margin-bottom: 30px;
+    }
+
+    .warning{
+        margin-left: 20px;
+        font-size: 18px;
+    }    
+
+    .hello h2, h3{
+        font-size: 22px;
+    }
+
+    .main-content {
+        margin-top: 66px;
+        overflow-x: hidden;
+        display: contents;
+    }
+
+    .agree-click{
+        justify-items: center;
+    }
+
+    .pinkie-baloons{
+        position: inherit;
+        margin-top: 66px;
+    }
+
+    .meet{
+        position: inherit;
+        margin-top: 66px;
+        top: 1559px;
+    }
+    .popup{
+        left: 20%;
+    }
 }
 </style>
 

@@ -104,6 +104,55 @@
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
+@media (max-width: 576px){
+    .close-string{
+        display: flex;
+        justify-content: end;
+        width: 250px;
+        height: 32px;
+    }
+
+    .email-popup{
+        display: grid;  
+        justify-content: center;
+        width: 250px;
+        height: auto;
+        border: 20px solid;
+        border-image: url(../assets/buttons/border_auth.png) 65;
+        border-image-outset: 15px;
+        border-radius: 20px;
+        font-family: "Celestia Redux", serif;
+        color: #525252;
+    }
+
+    .email-popup h2{
+        font-size: 22px;
+    }
+
+    .spike-msg{
+        width: 200px;
+        height: 150px;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+
+    .spike-email{
+        width: 100px;
+        height: auto;
+    }
+
+    .enter-button{
+        width: 125px;
+        height: 50px;
+        border-radius: 30px;
+        color: white;
+        font-size: 20px;
+        padding-top: 10px;
+    }
+
+
+}
+
 </style>
 
 <script setup>

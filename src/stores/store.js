@@ -117,13 +117,13 @@ export const PonyStore = defineStore('counter', {
         ],
     }),
     actions: {
-            async getApidata(id) {
+            async getApidata(id, api_id) {
                 const response = await fetch(
                     `https://ponyapi.net/v1/episode/all`
                 );
                 const result = await response.json();
                 this.fetchdata=result;
-                this.aradata[id].episode_img=result.data[35].image;
+                this.aradata[id].episode_img=result.data[api_id].image;
 
                 console.log(this.fetchdata)
             },
